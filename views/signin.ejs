@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if (!locals.signedIn) { %>
+    <form action="/signin" method="post">
+        <h1>Sign In</h1>
+        <span>Username</span><br>
+        <input type="text" name="username" placeholder="Enter your username" value="<%= username %>"><br>
+        <span>Password</span><br>
+        <input type="password" name="password" placeholder="Enter your password"><br>
+        <input type="checkbox" name="saveme" value="true" ><span>Remember Me</span><br><br>
+        <button>Submit</button>
+    </form>
+    <% } %>
+<br><br><br>
+
+    <% if (locals.signedIn === true) { %>
+    <h1>Welcome to the test site, <%= locals.username || 'Guest' %>!</h1><br>
+    <a href="/signout">Sign Out</a>
+    <% } %>
+
+
+</body>
+</html>
